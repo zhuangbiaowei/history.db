@@ -8,4 +8,4 @@
 ## 人际关系
 
 - 父: [黄帝](huangdi.md)
-- 子: [高阳](gaoyang.md)
+- 子: [颛顼](zhuanxu.md)
