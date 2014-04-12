@@ -9,5 +9,5 @@
 
 - 父: [少典](shaodian.md)
 - 妻: [嫘祖](luozhu.md)
-- 子: [玄嚣](xuanxiao.md),[昌意](cangyi.md)
+- 子: [玄嚣](xuanxiao.md),[昌意](changyi.md)
 - 孙: [高阳](gaoyang.md)
