@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     github-markdown (0.6.5)
+    liquid (2.6.1)
     rack (1.5.2)
     rack-protection (1.5.2)
       rack
@@ -17,5 +18,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-markdown
+  liquid
   sinatra
   sqlite3
+  tilt
