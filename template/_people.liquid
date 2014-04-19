@@ -1,0 +1,11 @@
+# {{people.name}}
+
+## 姓名(中文)
+{% if people.xing %}- 姓: {{people.xing}}
+{% endif %}{% if people.ming %}- 名: {{people.ming}}
+{% endif %}{% if people.another_name %}- 又名: {{people.another_name}}
+{% endif %}{% if people.hao %}- 号: {{people.hao}}
+{% endif %}{% if people.pinyin %}- 拼音: {{people.pinyin}}
+{% endif %}
+## 人际关系
+{% include 'relation' for people.relations %}
