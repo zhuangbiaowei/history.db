@@ -3,6 +3,20 @@
 ## 姓名(中文)
 {% include 'people_name' for people.names %}
 
-{% endif %}
+## 基本信息
+{% include 'people_info' for people.infos %}
+
 ## 人际关系
 {% include 'people_relation' for people.relations %}
+
+## 事件
+{% include 'people_event' for people.events %}
+
+## 言论
+{% include 'people_talk' for people.talks %}
+
+## 著作
+{% include 'people_publish' for people.publishs %}
+
+## 身份
+{% include 'people_place' for people.places %}
