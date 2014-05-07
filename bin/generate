@@ -1,3 +1,4 @@
 #!/bin/sh
+filepath=$(cd "$(dirname "$0")/../"; pwd)
 
-echo "HELLO WORLD"
+ruby $filepath/lib/generate.rb
