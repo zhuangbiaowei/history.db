@@ -1,7 +1,7 @@
 Sequel.migration do
     up do
-        create_table(:meta) do
-            primary_key :id
+        create_table(:metas) do
+            String :id, :null=>false
             String :type, :null=>false
             String :table, :null=>false
             String :values, :null=>false
@@ -9,6 +9,6 @@ Sequel.migration do
     end
 
     down do
-        drop_table(:meta)
+        drop_table(:metas)
     end
 end
