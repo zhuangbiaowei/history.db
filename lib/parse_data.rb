@@ -23,21 +23,25 @@ def parse_people(id,doc)
 			if child.options[:level]==1
 				people.name=child.options[:raw_text]
 			elsif child.options[:level]==2
-				if child.options[:raw_text]=="姓名"
+				case child.options[:raw_text]
+				when "姓名","Name" then
 					wait_type=:name
-				elsif child.options[:raw_text]=="基本信息"
+				when "基本信息","Info" then
 					wait_type=:base_info
-				elsif child.options[:raw_text]=="人际关系"
+				when "人际关系","Relation" then
 					wait_type=:relation
+				else
+					wait_type=nil
 				end
 			end
 		end
 		if child.type==:ul
-			if wait_type==:name
+			case wait_type
+			when :name then
 				parse_people_name(people,child)
-			elsif wait_type==:base_info
+			when :base_info then
 				parse_people_base_info(people,child)
-			elsif wait_type==:relation
+			when :relation then
 				parse_people_relation(people,child)
 			end
 			wait_type=nil
