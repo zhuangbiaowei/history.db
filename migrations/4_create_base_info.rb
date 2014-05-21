@@ -5,6 +5,7 @@ Sequel.migration do
             String :people_id, :null=>false
             String :info_name, :null=>false
             String :info_value, :null=>false
+            String :info_link
         end
     end
 
