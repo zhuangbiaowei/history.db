@@ -25,3 +25,6 @@ class People < Sequel::Model
 	one_to_many :base_infos
 end
 
+class Relations < Sequel::Model
+end
+
