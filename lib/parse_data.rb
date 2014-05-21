@@ -65,18 +65,49 @@ end
 
 def parse_people_base_info(people,element)
 	element.children.each do |child|
-		pp child.children[0]
-		pp child.children[0].children[0].value.split(": ")
 		info_value=child.children[0].children[0].value.split(": ")
-		base_info = BaseInfo.where(:people_id=>people.id).where(:info_name=>info_value[0]).first
-		base_info=BaseInfo.new unless base_info
-		base_info.people_id=people.id
-		base_info.info_name=info_value[0]
-		base_info.info_value=info_value[1]
-		#base_info.save
-		people.base_infos<<base_info
+		if info_value.length>0
+			base_info = BaseInfo.where(:people_id=>people.id).where(:info_name=>info_value[0]).first
+			base_info=BaseInfo.new unless base_info
+			base_info.people_id=people.id
+			base_info.info_name=info_value[0]
+
+			locate=0
+			value=""		
+			child.children[0].children.each do |sub|
+				if locate>0
+					if sub.type==:a
+						value=value+"[#{sub.children[0].value}](#{sub.attr["href"]})"
+					end
+					if sub.type==:text
+						value=value+sub.value
+					end
+				end
+				locate=locate+1
+			end
+			base_info.info_value=value
+			base_info.save
+			people.base_infos<<base_info
+		end
 	end
 end
 
 def parse_people_relation(people,element)
+	element.children.each do |child|
+		locate=0
+		relation=""
+		child.children[0].children.each do |sub|
+			if locate==0
+				relation=sub.value.split(":")[0]
+			else
+				if sub.type==:a
+					puts people.id
+					puts people.name
+					puts relation
+					puts sub.children[0].value
+				end
+			end
+			locate=locate+1
+		end
+	end
 end
